@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>♡ 招聘中 ♡</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Microsoft YaHei", sans-serif;
+  background: #fff0f5;
+  color: #754354;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 55px 20px 30px;
+  background: linear-gradient(135deg, #ffc6da, #ffe5ee);
+}
+
+header h1 {
+  font-size: 32px;
+  color: #d94f83;
+}
+
+.container {
+  max-width: 950px;
+  margin: 35px auto;
+  padding: 15px;
+}
+
+.packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border: 2px solid #ffd0df;
+  border-radius: 25px;
+  padding: 25px 18px;
+  box-shadow: 0 7px 18px #e9a6bc55;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.emoji { font-size: 55px; }
+
+.card h2 { color: #db6590; }
+
+.card ul {
+  padding-left: 25px;
+  text-align: left;
+  line-height: 2;
+  font-size: 14px;
+}
+
+button {
+  background: #ee8eaf;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 23px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover { background: #d94f83; }
+
+.form-box {
+  background: white;
+  border-radius: 25px;
+  padding: 25px;
+  max-width: 500px;
+  margin: 35px auto;
+  box-shadow: 0 7px 18px #e9a6bc55;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 13px;
+  margin: 9px 0;
+  border: 1px solid #f2b6ca;
+  border-radius: 12px;
+  font-family: inherit;
+}
+
+textarea { resize: vertical; }
+
+#success {
+  display: none;
+  background: #ffe1ec;
+  padding: 20px;
+  border-radius: 18px;
+  margin-top: 15px;
+}
+
+footer {
+  padding: 25px;
+  color: #bd6688;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  animation: float 7s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div style="font-size:50px">🎀 💗 🧸</div>
+  <h1>正在招聘！寻找我的专属男朋友和老公！</h1>
+  <p>寻找一个特别的人，来填补我的生活 ♡</p>
+  <p><b>名额有限，先到先得！</b></p>
+</header>
+
+<div class="container">
+
+<h2>♡ 请选择你想申请的套餐 ♡</h2>
+<p>你想应聘哪个职位呢？</p>
+
+<div class="packages">
+
+<div class="card">
+  <div class="emoji">💗</div>
+  <h2>男朋友套餐</h2>
+  <p><b>职位：专属男朋友</b></p>
+  <ul>
+    <li>无限量撒娇和宠爱</li>
+    <li>每天早安和晚安信息</li>
+    <li>浪漫约会</li>
+    <li>拥抱和亲亲</li>
+    <li>情绪支持与陪伴</li>
+  </ul>
+  <button onclick="choose('男朋友套餐')">
+    立即申请 ♡
+  </button>
+</div>
+
+<div class="card">
+  <div class="emoji">💍</div>
+  <h2>老公套餐</h2>
+  <p><b>职位：终身伴侣</b></p>
+  <ul>
+    <li>一生一世的承诺</li>
+    <li>忠诚与坦诚</li>
+    <li>共同承担生活开销</li>
+    <li>一起规划未来</li>
+    <li>无限量抱抱</li>
+  </ul>
+  <button onclick="choose('老公套餐')">
+    立即申请 ♡
+  </button>
+</div>
+
+<div class="card">
+  <div class="emoji">🐰</div>
+  <h2>可爱小奴隶套餐</h2>
+  <p><b>职位：专属小助手</b></p>
+  <ul>
+    <li>帮我拿包包</li>
+    <li>帮我买零食</li>
+    <li>陪我办事情</li>
+    <li>给我公主般的待遇</li>
+    <li>额外宠爱和照顾</li>
+  </ul>
+  <button onclick="choose('可爱小奴隶套餐')">
+    立即申请 ♡
+  </button>
+</div>
+
+</div>
+
+<div class="form-box" id="application">
+
+<h2>💌 正式申请表</h2>
+<p>有兴趣吗？快来填写申请吧！</p>
+
+<form id="myForm">
+
+<input id="name"
+placeholder="你的姓名 ♡" required>
+
+<input id="age" type="number"
+placeholder="你的年龄" min="18" required>
+
+<select id="package" required>
+<option value="">请选择你想申请的套餐</option>
+<option>男朋友套餐</option>
+<option>老公套餐</option>
+<option>可爱小奴隶套餐</option>
+</select>
+
+<textarea id="reason" rows="4"
+placeholder="为什么我应该选择你呢？♡"
+required></textarea>
+
+<button type="submit">提交申请 💗</button>
+
+</form>
+
+<div id="success">
+<h2>🎀 申请已收到！ 🎀</h2>
+<p>谢谢你的申请，亲爱的！</p>
+<p>你的申请正在审核中。♡</p>
+<p>祝你好运！💗</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+  用爱、亲亲和一点点幻想制作 ♡
+  <br>© 2026 你的未来女朋友
+</footer>
+
+<script>
+
+function choose(packageName) {
+  document.getElementById("package").value = packageName;
+
+  document.getElementById("application").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+document.getElementById("myForm").addEventListener(
+"submit", function(event) {
+
+  event.preventDefault();
+
+  document.getElementById("success").style.display = "block";
+
+  document.getElementById("myForm").reset();
+
+  document.getElementById("success").scrollIntoView({
+    behavior: "smooth"
+  });
+
+});
+
+function createHeart() {
+
+  const heart = document.createElement("div");
+
+  heart.className = "heart";
+
+  heart.innerHTML = ["💗","💕","♡","🎀"][
+    Math.floor(Math.random() * 4)
+  ];
+
+  heart.style.left = Math.random() * 100 + "vw";
+
+  heart.style.animationDuration =
+    (4 + Math.random() * 4) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 8000);
+}
+
+setInterval(createHeart, 700);
+
+</script>
+
+</body>
+</html>
